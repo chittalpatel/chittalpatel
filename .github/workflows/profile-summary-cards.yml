@@ -5,10 +5,14 @@ on:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: generate-github-cards
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - uses: vn7n24fzkq/github-profile-summary-cards@release
